@@ -1,110 +1,522 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#171b22">
-<title>TEST MULTIPLU · Consolă de reacție · RO</title>
+<meta name="theme-color" content="#111820">
+<title>MEHRFACH-REAKTIONSTEST · Reaktionskonsole · DE</title>
 <style>
-:root{font-family:Arial,Helvetica,sans-serif;color:#18202a;background:#111820;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#34414a,#151a22 62%);padding:clamp(10px,2.5vw,30px)}button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}button:focus-visible{outline:3px solid #219df5;outline-offset:4px}.shell{max-width:980px;margin:auto}.heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;color:#e8f2f4;gap:10px;padding:5px 8px 14px}.heading h1{font-size:clamp(17px,3.5vw,27px);margin:0;letter-spacing:1.3px}.heading .subtitle{font-size:12px;color:#bac8cd;margin-top:5px}.status{font-size:13px;font-weight:bold;background:#243541;border:1px solid #47616b;border-radius:40px;padding:9px 14px;color:#8af4d0}.status::before{content:'●';color:#59e9a0;margin-right:7px}.display{background:linear-gradient(160deg,#333 0%,#525252 56%,#292929);padding:clamp(16px,3vw,29px);border:6px solid #171717;border-radius:27px;box-shadow:inset 0 2px 5px #666,0 12px 25px #0008}.display-title{color:#d7d7d7;letter-spacing:2.5px;text-align:center;font-size:11px;font-weight:bold;margin:0 0 18px}.lamps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2.8vw,27px);justify-items:center;max-width:760px;margin:auto}.lamp{height:auto;aspect-ratio:1;width:100%;max-width:105px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#1b1b1b 0%,#080808 52%,#000 69%);border:3px solid #111;box-shadow:inset 0 4px 9px #000,inset 0 -1px 2px #7775,0 2px 1px #73737355;position:relative;display:grid;place-items:center;color:transparent;font-weight:900;font-size:clamp(16px,3vw,28px);transition:background .16s,color .16s}.lamp.pedal-indicator{aspect-ratio:auto;width:68%;max-width:85px;height:clamp(37px,5vw,66px);border-radius:7px;clip-path:none;background:linear-gradient(#141414,#030303);grid-row:3;justify-self:center}.lamp.pedal-indicator.left-side{grid-column:1}.lamp.pedal-indicator.right-side{grid-column:4}.lamp.pedal-indicator::after{border-radius:4px}.lamp.pedal-indicator.is-pedal{background:linear-gradient(#fff6bc,#8f927e 65%,#43493e)}.lamp::after{content:'';position:absolute;inset:8%;border-radius:50%;background:linear-gradient(140deg,#fff2,transparent 48%);pointer-events:none}.lamp.is-lit{color:#12202b;text-shadow:0 1px #fff8;box-shadow:inset 0 4px 7px #fff5,0 0 17px var(--glow,#fff9),0 3px 2px #111}.lamp.is-red{--glow:#f52828c0;background:radial-gradient(circle at 38% 26%,#ffa39c,#e82b23 49%,#850c09)}.lamp.is-blue{--glow:#17aeecc0;background:radial-gradient(circle at 38% 26%,#a4efff,#169dcc 49%,#084d80)}.lamp.is-yellow{--glow:#ffe600c9;background:radial-gradient(circle at 38% 26%,#fffcc0,#f8ce20 49%,#bc8500)}.lamp.is-green{--glow:#14c758c0;background:radial-gradient(circle at 38% 26%,#b7ffd2,#1ca953 49%,#08652d)}.lamp.is-white{--glow:#ffffffa9;background:radial-gradient(circle at 38% 26%,#fff,#e2e2d9 49%,#a1a4a0)}.lamp.is-pedal{--glow:#edd15f99;background:radial-gradient(circle at 38% 26%,#fff5be,#c2c3bc 49%,#727670)}.lamp.is-tone{--glow:#9db6f3a0;background:radial-gradient(circle at 38% 26%,#f0f5ff,#899cb8 49%,#36485f)}.display-meta{min-height:36px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;color:#e5e8ec;font-size:13px}.display-meta strong{color:#d9ec9d}.console{position:relative;margin:14px auto 0;background:linear-gradient(162deg,#fcfcf7,#e8e8e2 55%,#d3d6d3);border:2px solid #bfc3c1;border-radius:35% 29% 27% 25% / 15% 13% 23% 25%;padding:clamp(22px,5vw,52px) clamp(18px,5vw,55px) clamp(25px,4vw,40px);box-shadow:inset 0 4px 5px #fff,inset 0 -11px 18px #adb2b055,0 14px 25px #0009;overflow:hidden}.console::before{content:'';position:absolute;inset:8px;border:1px solid #cfd0cc;border-radius:inherit;pointer-events:none}.console h2{text-align:center;font-size:11px;color:#667173;letter-spacing:3px;margin:0 0 12px}.control-layout{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.1fr;grid-template-rows:auto auto auto;gap:clamp(8px,2.4vw,22px);align-items:center;justify-items:center}.control{border:0;position:relative;transition:transform .08s,box-shadow .08s;user-select:none}.control:active{transform:translateY(3px) scale(.97)!important;filter:brightness(.87)}.colored{height:clamp(52px,8vw,79px);width:clamp(52px,8vw,79px);border-radius:50%;font-size:clamp(10px,1.7vw,13px);font-weight:700;border:3px solid #ffffff65;box-shadow:inset -6px -8px 13px #0003,inset 3px 5px 10px #fff9,0 6px 0 #828786,0 9px 8px #0003}.blue{grid-column:1;grid-row:1;background:#07a8e3;color:#002d43}.white{grid-column:2;grid-row:1;background:#fcfcfc;color:#343434}.yellow{grid-column:3;grid-row:1;background:#ffe165;color:#594300}.red{grid-column:2;grid-row:2;background:#f64848;color:#fff}.green{grid-column:3;grid-row:2;background:#1cb663;color:#092d1b}.tone{width:min(100%,145px);min-height:47px;border-radius:8px;background:linear-gradient(#e2e3e3,#777b7d);color:#1b2025;border:2px solid #899093;box-shadow:0 5px 0 #43484c,0 6px 9px #0004;font-weight:700;font-size:clamp(12px,1.8vw,15px)}.tone.high{grid-column:2;grid-row:3}.tone.low{grid-column:3;grid-row:3;background:linear-gradient(#555,#161616);color:white;border-color:#555;box-shadow:0 5px 0 #0a0a0a,0 6px 9px #0004}.pedal{width:min(100%,150px);height:clamp(66px,9vw,97px);background:linear-gradient(160deg,#eee,#a8abaa);clip-path:polygon(21% 4%,79% 4%,100% 100%,0 100%);color:#ffec11;font-size:clamp(28px,5vw,38px);font-weight:900;text-shadow:0 2px #555;filter:drop-shadow(0 5px 3px #0004)}.pedal.left{grid-column:1;grid-row:2 / span 2;align-self:end}.pedal.right{grid-column:4;grid-row:2 / span 2;align-self:end;background:linear-gradient(150deg,#83878a,#33383d)}.control.selected{outline:4px solid #25a8ee;outline-offset:5px}.controls-note{font-size:12px;color:#596166;text-align:center;margin:18px 0 0}.setup{margin:15px auto 0;border:1px solid #46515c;border-radius:18px;background:#222c35;color:white;text-align:center;padding:18px}.setup h2{font-size:17px;margin:0 0 10px}.setup button,.reset{background:#36a668;color:#fff;border:0;border-radius:9px;padding:13px 22px;font-size:15px;font-weight:700;margin:4px}.setup button:hover,.reset:hover{background:#298354}.result{color:white;background:#203642;border:1px solid #507388;border-radius:15px;padding:18px;margin-top:15px;text-align:center;font-size:18px;line-height:1.6}.hint{color:#b9c8cc;text-align:center;font-size:12px;margin:14px 0}.hidden{display:none!important}button:disabled{cursor:default;opacity:.65}.console.inactive .control{pointer-events:none}.console.inactive{filter:saturate(.7)}@media(max-width:550px){body{padding:7px}.heading{padding:10px 3px}.heading h1{font-size:18px}.display{padding:12px;border-width:4px;border-radius:19px}.lamps{gap:8px}.lamp{border-width:2px}.display-meta{font-size:11px;flex-wrap:wrap}.console{border-radius:26px;padding:22px 10px 18px}.control-layout{grid-template-columns:.85fr 1fr 1fr .85fr;gap:8px}.colored{width:clamp(44px,13vw,65px);height:clamp(44px,13vw,65px);font-size:10px}.pedal{height:66px;font-size:26px}.tone{font-size:11px;min-height:44px}.controls-note{font-size:11px}.status{font-size:11px;padding:7px 9px}}@media(prefers-reduced-motion:reduce){.lamp,.control{transition:none}}
+:root{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:#e8f2f4;background:#111820;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#2d3a45,#121820 68%);padding:clamp(10px,2.2vw,24px)}
+button,input,select{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible{outline:3px solid #219df5;outline-offset:3px}
+.shell{max-width:1080px;margin:auto}
+.heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;color:#e8f2f4;gap:12px;padding:4px 4px 12px;border-bottom:1px solid #263340;margin-bottom:14px}
+.heading h1{font-size:clamp(17px,3vw,24px);margin:0;letter-spacing:1px}
+.heading .subtitle{font-size:12px;color:#9fb2bc;margin-top:3px}
+.top-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.badge-btn{font-size:12px;font-weight:700;background:#1e2b36;border:1px solid #384e5e;border-radius:9px;padding:8px 12px;color:#d6e8ee}
+.badge-btn:hover{background:#293b49}
+.telemetry{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:6px 4px 14px;font-size:13px;color:#cbd8de}
+.telemetry strong{color:#59e9a0}
+.grid-main{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+@media(min-width:920px){.grid-main{grid-template-columns:7fr 5fr}}
+.display{background:linear-gradient(165deg,#32363b 0%,#484d54 48%,#23272b 100%);padding:clamp(14px,2.6vw,24px);border:5px solid #16191d;border-radius:26px;box-shadow:inset 0 2px 6px rgba(255,255,255,.2),0 14px 28px rgba(0,0,0,.55)}
+.display-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;font-size:11px;font-weight:700;letter-spacing:1.8px;color:#d0d7dc}
+.timer-bar-wrap{width:100%;height:6px;background:#111519;border-radius:99px;overflow:hidden;margin-bottom:14px}
+.timer-bar{height:100%;background:#34d399;width:100%}
+.lamps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2.4vw,22px);justify-items:center;max-width:640px;margin:auto}
+.lamp{aspect-ratio:1;width:100%;max-width:96px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#23272c 0%,#0d0f12 54%,#030405 76%);border:3px solid #101215;box-shadow:inset 0 5px 10px #000,inset 0 -1px 2px #7775,0 2px 2px #ffffff20;position:relative;display:grid;place-items:center;color:#556068;font-weight:800;font-size:12px;transition:transform .14s}
+.lamp::after{content:'';position:absolute;inset:9%;border-radius:50%;background:linear-gradient(140deg,#fff3,transparent 48%);pointer-events:none}
+.lamp.is-lit{transform:scale(1.03);color:#111}
+.lamp.is-red{background:radial-gradient(circle at 36% 26%,#ffb8b3,#f43127 46%,#880b06);box-shadow:inset 0 3px 8px #fff7,0 0 24px #f52828d8,0 3px 4px #111;color:#fff}
+.lamp.is-blue{background:radial-gradient(circle at 36% 26%,#b8f3ff,#15a8df 46%,#064978);box-shadow:inset 0 3px 8px #fff7,0 0 24px #17aeecd8,0 3px 4px #111;color:#fff}
+.lamp.is-yellow{background:radial-gradient(circle at 36% 26%,#fffef0,#ffd829 46%,#b87f00);box-shadow:inset 0 3px 8px #fff9,0 0 24px #ffe600d8,0 3px 4px #111;color:#111}
+.lamp.is-green{background:radial-gradient(circle at 36% 26%,#c6ffdc,#1cc45d 46%,#07612a);box-shadow:inset 0 3px 8px #fff7,0 0 24px #14c758d8,0 3px 4px #111;color:#fff}
+.lamp.is-white{background:radial-gradient(circle at 36% 26%,#fff,#ebede8 48%,#9ea39f);box-shadow:inset 0 3px 8px #fff,0 0 24px #ffffffd8,0 3px 4px #111;color:#111}
+.pedal-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2.4vw,22px);align-items:center;justify-items:center;max-width:640px;margin:16px auto 0}
+.pedal-indicator{width:100%;max-width:92px;height:clamp(42px,5vw,58px);border-radius:9px;background:linear-gradient(180deg,#17191c,#070809);border:3px solid #101215;box-shadow:inset 0 4px 8px #000;display:grid;place-items:center;font-weight:900;font-size:20px;color:#464e54}
+.pedal-indicator.is-lit{background:linear-gradient(180deg,#fff9cc,#e0c55a 58%,#7d6b24);box-shadow:inset 0 2px 6px #fffb,0 0 22px #f5d456d8;color:#181a1b}
+.speaker-box{grid-column:2 / span 2;width:100%;min-height:48px;background:#0d1116;border:2px solid #26313d;border-radius:12px;padding:6px 10px;display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;font-size:13px;font-weight:700;color:#9ec5db}
+.display-meta{min-height:32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-top:14px;padding-top:10px;border-top:1px solid #555c6380;color:#e5e8ec;font-size:13px}
+.console{position:relative;margin-top:14px;background:linear-gradient(164deg,#fafaf5,#e6e8e3 54%,#cfd3d0);border:2px solid #b8bdbb;border-radius:32px;padding:clamp(18px,3.5vw,32px) clamp(14px,3.5vw,32px);box-shadow:inset 0 4px 6px #fff,inset 0 -10px 18px #969c9a70,0 16px 32px #0009;color:#1e262b}
+.console-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;font-weight:800;letter-spacing:2px;color:#556064}
+.control-layout{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.1fr;gap:clamp(8px,2.2vw,18px);align-items:center;justify-items:center;max-width:640px;margin:auto}
+.control{border:0;position:relative;transition:transform .08s;user-select:none}
+.control:active{transform:translateY(3px) scale(.96)!important}
+.colored{height:clamp(54px,7.8vw,78px);width:clamp(54px,7.8vw,78px);border-radius:50%;font-size:clamp(11px,1.6vw,13px);font-weight:800;border:3px solid #ffffff85;box-shadow:inset -5px -7px 12px #0003,inset 3px 5px 9px #fff9,0 6px 0 #7b807f,0 10px 12px #0004;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.colored small,.tone small,.pedal small{font-size:9px;opacity:.8;font-weight:700;margin-top:2px}
+.blue{grid-column:1;grid-row:1;background:#07a8e3;color:#00293d}
+.white{grid-column:2;grid-row:1;background:#fcfcfc;color:#262626}
+.yellow{grid-column:3;grid-row:1;background:#ffe152;color:#4d3900}
+.repeat-slot{grid-column:4;grid-row:1}
+.red{grid-column:2;grid-row:2;background:#f23d3d;color:#fff}
+.green{grid-column:3;grid-row:2;background:#1ab25e;color:#052915}
+.tone{width:min(100%,146px);min-height:50px;border-radius:10px;background:linear-gradient(#eaeded,#7d8285);color:#181d22;border:2px solid #8c9396;box-shadow:0 5px 0 #3f4448,0 8px 12px #0004;font-weight:800;font-size:clamp(11px,1.6vw,13px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px}
+.tone.high{grid-column:2;grid-row:3}
+.tone.low{grid-column:3;grid-row:3;background:linear-gradient(#525659,#17191b);color:#fff;border-color:#4d5256;box-shadow:0 5px 0 #0a0a0a,0 8px 12px #0004}
+.pedal{width:min(100%,142px);height:clamp(68px,8.5vw,94px);background:linear-gradient(160deg,#f0f2f0,#9fa3a2);clip-path:polygon(18% 4%,82% 4%,100% 100%,0 100%);color:#ffea14;font-size:clamp(26px,4.5vw,36px);font-weight:900;text-shadow:0 2px 3px #000a;filter:drop-shadow(0 6px 4px #0005);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pedal small{color:#111;text-shadow:none}
+.pedal.left{grid-column:1;grid-row:2 / span 2;align-self:end}
+.pedal.right{grid-column:4;grid-row:2 / span 2;align-self:end;background:linear-gradient(150deg,#858a8d,#32373c)}
+.pedal.right small{color:#eee}
+.control.selected{outline:4px solid #0284c7;outline-offset:4px}
+.controls-note{font-size:12px;color:#4e565a;text-align:center;margin:14px 0 0;font-weight:600}
+.panel{border:1px solid #2b3947;border-radius:20px;background:#162029;color:#e8f2f4;padding:18px;box-shadow:0 12px 24px #0006}
+.panel h2{font-size:16px;margin:0 0 12px;color:#fff}
+.panel-section{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #243240}
+.panel-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+.label-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;margin-bottom:8px}
+.btn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.opt-btn{background:#21303d;color:#d8e6ec;border:1px solid #34495a;border-radius:9px;padding:9px 6px;font-size:12px;font-weight:700}
+.opt-btn:hover{background:#2b3f50}
+.opt-btn.active{background:#10b981;color:#06281e;border-color:#34d399}
+.start-btn{width:100%;background:#10b981;color:#042419;border:0;border-radius:12px;padding:14px;font-size:15px;font-weight:800;margin-top:8px}
+.start-btn:hover{background:#34d399}
+.sound-test-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.sound-btn{background:#1d2d3a;border:1px solid #385369;color:#bae6fd;border-radius:10px;padding:10px;font-size:12px;font-weight:700;text-align:left}
+.sound-btn.bear{color:#fde68a}
+.result-box{background:#172a36;border:1px solid #38617a;border-radius:16px;padding:16px;margin-top:14px;text-align:center}
+.hidden{display:none!important}
+@media(max-width:560px){body{padding:8px}.btn-grid{grid-template-columns:repeat(4,1fr)}.colored{width:54px;height:54px}}
 </style>
 </head>
-<body><main class="shell">
-<header class="heading"><div><h1>TEST MULTIPLU · CONSOLĂ DE REACȚIE</h1><div class="subtitle">8 lămpi · 2 indicatoare pentru pedale · sunete de urs și pasăre</div></div><div class="status" id="status">Pregătit</div></header>
-<section class="display" aria-label="Panou cu opt lămpi și două indicatoare de pedală">
-<p class="display-title">PANOU DE SEMNALIZARE · 8 LĂMPI + 2 PEDALE</p>
-<div class="lamps" id="lamps" aria-live="polite"></div>
-<div class="display-meta"><span id="roundLabel">Alegeți numărul de runde</span><strong id="notification" role="status">Așteptare</strong></div>
-</section>
-<section class="console inactive" id="console" aria-label="Consolă de comandă">
-<h2>COMENZI · ALEGEȚI DOUĂ RĂSPUNSURI</h2>
-<div class="control-layout">
-<button class="control colored blue" data-type="color" data-value="blue">Albastru</button>
-<button class="control colored white" data-type="color" data-value="white">Alb</button>
-<button class="control colored yellow" data-type="color" data-value="yellow">Galben</button>
-<button class="control colored red" data-type="color" data-value="red">Roșu</button>
-<button class="control colored green" data-type="color" data-value="green">Verde</button>
-<button class="control pedal left" data-type="pedal" data-value="left" aria-label="Pedala stângă">S</button>
-<button class="control pedal right" data-type="pedal" data-value="right" aria-label="Pedala dreaptă">D</button>
-<button class="control tone high" data-type="tone" data-value="high">Ton Înalt</button>
-<button class="control tone low" data-type="tone" data-value="low">Ton Scăzut</button>
-</div><p class="controls-note" id="choiceHint">Apăsați cele două comenzi care corespund semnalelor.</p>
-</section>
-<section class="setup" id="setup"><h2>Alegeți numărul de runde:</h2><button data-rounds="10">10 Runde</button><button data-rounds="20">20 Runde</button><button data-rounds="30">30 Runde</button></section>
-<div class="result hidden" id="result" role="status"></div>
-<p class="hint">Joc în limba română · Funcționează pe telefon și calculator · Ton scăzut = urs · ton înalt = pasăre · fără fișiere MP3</p>
-</main><script>
+<body>
+<main class="shell">
+  <header class="heading">
+    <div>
+      <h1>MEHRFACH-REAKTIONSTEST · REAKTIONSKONSOLE</h1>
+      <div class="subtitle">8 Lampen · 2 Pedalanzeigen · Verbesserter Bären- und Vogelton (Handy & PC)</div>
+    </div>
+    <div class="top-actions">
+      <button type="button" class="badge-btn" id="quickBirdBtn">♪ Vogelton ↑</button>
+      <button type="button" class="badge-btn" id="quickBearBtn">♪ Bärenton ↓</button>
+      <button type="button" class="badge-btn" id="muteBtn">Ton: Ein</button>
+    </div>
+  </header>
+
+  <div class="telemetry">
+    <div>
+      <span id="roundLabel">Bereit zum Start</span> ·
+      <span>Treffer: <strong id="scoreLabel">0 / 0</strong></span> ·
+      <span>Serie: <strong id="streakLabel">0</strong></span> ·
+      <span>Ø Zeit: <strong id="avgTimeLabel">—</strong></span>
+    </div>
+    <div id="lastFeedback">Tipp: Tasten 1–5, A/D und Pfeiltasten ↑/↓ funktionieren auch!</div>
+  </div>
+
+  <div class="grid-main">
+    <div>
+      <section class="display" aria-label="Signalfeld">
+        <div class="display-header">
+          <span>SIGNALFELD · 8 LAMPEN + 2 PEDALE</span>
+          <button type="button" class="badge-btn" id="toggleToneHintBtn" style="padding:4px 8px;font-size:11px">Ton-Text: Sichtbar</button>
+        </div>
+        <div class="timer-bar-wrap hidden" id="timerWrap"><div class="timer-bar" id="timerBar"></div></div>
+        <div class="lamps" id="lamps"></div>
+        <div class="pedal-row">
+          <div class="pedal-indicator" id="pedalLeft">L</div>
+          <div class="speaker-box" id="notification">Warten auf Start</div>
+          <div class="pedal-indicator" id="pedalRight">R</div>
+        </div>
+        <div class="display-meta">
+          <span id="choiceProgress">Auswahl: 0 / 2</span>
+          <span id="modeSummary">2 Signale · 30 Runden</span>
+        </div>
+      </section>
+
+      <section class="console" id="console">
+        <div class="console-top">
+          <span id="consoleHeading">BEDIENFELD · ANTWORTEN WÄHLEN</span>
+          <button type="button" id="undoBtn" class="badge-btn hidden" style="padding:4px 8px;font-size:11px">Auswahl löschen</button>
+        </div>
+        <div class="control-layout">
+          <button type="button" class="control colored blue" data-type="color" data-value="blue"><span>Blau</span><small>[1 / B]</small></button>
+          <button type="button" class="control colored white" data-type="color" data-value="white"><span>Weiß</span><small>[2 / W]</small></button>
+          <button type="button" class="control colored yellow" data-type="color" data-value="yellow"><span>Gelb</span><small>[3 / G]</small></button>
+          <button type="button" class="badge-btn repeat-slot" id="repeatToneBtn" title="Ton wiederholen (Leertaste)">↻ Ton</button>
+          <button type="button" class="control colored red" data-type="color" data-value="red"><span>Rot</span><small>[4 / R]</small></button>
+          <button type="button" class="control colored green" data-type="color" data-value="green"><span>Grün</span><small>[5 / V]</small></button>
+          <button type="button" class="control pedal left" data-type="pedal" data-value="left"><span>L</span><small>[A / ←]</small></button>
+          <button type="button" class="control pedal right" data-type="pedal" data-value="right"><span>R</span><small>[D / →]</small></button>
+          <button type="button" class="control tone high" data-type="tone" data-value="high"><span>Hoher Ton ↑</span><small>Vogel [↑/H]</small></button>
+          <button type="button" class="control tone low" data-type="tone" data-value="low"><span>Tiefer Ton ↓</span><small>Bär [↓/T]</small></button>
+        </div>
+        <p class="controls-note" id="choiceHint">Drücke die Tasten, die den Signalen entsprechen (nochmal tippen hebt Auswahl auf).</p>
+      </section>
+    </div>
+
+    <aside class="panel">
+      <div class="panel-section">
+        <div class="label-row">
+          <span>1. Rundenzahl wählen</span>
+          <span id="selectedRoundsText" style="color:#34d399">30 Runden</span>
+        </div>
+        <div class="btn-grid" id="roundButtons">
+          <button type="button" class="opt-btn" data-rounds="10">10</button>
+          <button type="button" class="opt-btn" data-rounds="20">20</button>
+          <button type="button" class="opt-btn active" data-rounds="30">30</button>
+          <button type="button" class="opt-btn" data-rounds="50">50</button>
+          <button type="button" class="opt-btn" data-rounds="75">75</button>
+          <button type="button" class="opt-btn" data-rounds="100">100</button>
+          <button type="button" class="opt-btn" data-rounds="150">150</button>
+          <button type="button" class="opt-btn" data-rounds="200">200</button>
+        </div>
+        <div style="margin-top:10px;display:flex;align-items:center;gap:10px">
+          <input type="range" id="roundsSlider" min="5" max="300" step="5" value="30" style="flex:1">
+          <button type="button" class="opt-btn" id="endlessBtn">∞ Endlos</button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="label-row"><span>2. Gleichzeitige Signale</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px" id="sigCountButtons">
+          <button type="button" class="opt-btn" data-sig="1">1 Signal</button>
+          <button type="button" class="opt-btn active" data-sig="2">2 Signale</button>
+          <button type="button" class="opt-btn" data-sig="3">3 Signale</button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="label-row"><span>3. Zeitlimit pro Runde</span></div>
+        <div class="btn-grid" id="timeButtons">
+          <button type="button" class="opt-btn active" data-time="0">Kein Limit</button>
+          <button type="button" class="opt-btn" data-time="3500">3,5 Sek.</button>
+          <button type="button" class="opt-btn" data-time="2200">2,2 Sek.</button>
+          <button type="button" class="opt-btn" data-time="1500">1,5 Sek.</button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="label-row">
+          <span>4. Verbesserte Töne & Lautstärke</span>
+          <span id="volLabel">85%</span>
+        </div>
+        <input type="range" id="volSlider" min="5" max="100" step="5" value="85" style="width:100%">
+        <div class="sound-test-grid">
+          <button type="button" class="sound-btn" id="testHighBtn">♪ Hoher Ton (Vogel ↑)<br><small>Dreifaches Zwitschern</small></button>
+          <button type="button" class="sound-btn bear" id="testLowBtn">♪ Tiefer Ton (Bär ↓)<br><small>Kräftiges Bass-Brummen</small></button>
+        </div>
+      </div>
+
+      <button type="button" class="start-btn" id="startBtn">▶ Test jetzt starten (30 Runden)</button>
+      <div class="result-box hidden" id="resultBox"></div>
+    </aside>
+  </div>
+</main>
+<script>
 'use strict';
-const colors=['red','blue','green','yellow','white'];
-const tones=['high','low'];
-const pedals=['left','right'];
-const signalTypes=['color-pedal','tone-color','color-color','tone-pedal'];
-const lamps=document.getElementById('lamps');
+const COLORS=['red','blue','green','yellow','white'];
+const COLOR_DE={blue:'Blau',white:'Weiß',yellow:'Gelb',red:'Rot',green:'Grün'};
+const TONES=['high','low'];
+const PEDALS=['left','right'];
+const lampsContainer=document.getElementById('lamps');
 const controls=Array.from(document.querySelectorAll('.control'));
-let totalRounds=0,currentRound=0,correctAnswers=0,currentSignals=[],userChoices=[],waiting=false,finished=false,audioContext=null;
+
+let totalRounds=30,isEndless=false,signalsPerRound=2,timeLimitMs=0;
+let currentRound=0,correctAnswers=0,streak=0,totalTimeMs=0;
+let currentSignals=[],userChoices=[],playing=false,waiting=false;
+let showToneText=true,muted=false,volume=0.85,audioCtx=null,roundStart=0,timerId=null;
+
+for(let i=0;i<8;i++){
+  const el=document.createElement('div');
+  el.className='lamp';
+  el.textContent=String(i+1);
+  lampsContainer.appendChild(el);
+}
+
 const rand=a=>a[Math.floor(Math.random()*a.length)];
-for(let i=0;i<10;i++){const el=document.createElement('div');el.className=i>=8?'lamp pedal-indicator '+(i===8?'left-side':'right-side'):'lamp';el.id='lamp'+i;el.setAttribute('aria-label',i>=8?'Indicator pedală stins':'Indicator '+(i+1)+' stins');lamps.appendChild(el)}
-function buildSignals(){const type=rand(signalTypes);if(type==='color-pedal')return[{type:'color',value:rand(colors)},{type:'pedal',value:rand(pedals)}];if(type==='tone-color')return[{type:'tone',value:rand(tones)},{type:'color',value:rand(colors)}];if(type==='color-color'){const first=rand(colors);return[{type:'color',value:first},{type:'color',value:rand(colors.filter(v=>v!==first))}]}return[{type:'tone',value:rand(tones)},{type:'pedal',value:rand(pedals)}]}
-// Sunete sintetizate: tonul scăzut este un mormăit grav ca un urs;
-// tonul înalt este un ciripit luminos ca o pasăre.
+
+function getAudio(){
+  const C=window.AudioContext||window.webkitAudioContext;
+  if(!C)return null;
+  if(!audioCtx)audioCtx=new C();
+  if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});
+  return audioCtx;
+}
+
 function speakTone(value){
- try{
-  const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
-  if(!audioContext)audioContext=new C();
-  if(audioContext.state==='suspended')audioContext.resume().catch(()=>{});
-  const now=audioContext.currentTime;
-  const voice=(at,duration,startFreq,endFreq,wave,volume)=>{
-    const oscillator=audioContext.createOscillator();const gain=audioContext.createGain();
-    oscillator.type=wave;
-    oscillator.frequency.setValueAtTime(startFreq,at);
-    oscillator.frequency.exponentialRampToValueAtTime(Math.max(1,endFreq),at+duration);
-    gain.gain.setValueAtTime(.0001,at);
-    gain.gain.exponentialRampToValueAtTime(volume,at+.025);
-    gain.gain.exponentialRampToValueAtTime(.0001,at+duration);
-    oscillator.connect(gain);gain.connect(audioContext.destination);
-    oscillator.start(at);oscillator.stop(at+duration+.02);
-  };
-  if(value==='low'){
-    voice(now,.62,115,71,'sawtooth',.10);
-    voice(now+.04,.55,58,46,'sine',.18);
+  if(muted||volume<=0.01)return;
+  try{
+    const ctx=getAudio();if(!ctx)return;
+    const now=ctx.currentTime;
+    const master=ctx.createGain();
+    master.gain.setValueAtTime(volume,now);
+    master.connect(ctx.destination);
+
+    if(value==='low'){
+      // Kräftiger Bärenton mit Oberwellen (auch auf Handy-Lautsprechern klar hörbar)
+      const dur=0.68;
+      const filter=ctx.createBiquadFilter();
+      filter.type='lowpass';
+      filter.frequency.setValueAtTime(420,now);
+      filter.frequency.exponentialRampToValueAtTime(210,now+dur);
+      filter.Q.setValueAtTime(3.2,now);
+      filter.connect(master);
+
+      const o1=ctx.createOscillator(),g1=ctx.createGain();
+      o1.type='sawtooth';o1.frequency.setValueAtTime(138,now);o1.frequency.exponentialRampToValueAtTime(84,now+dur);
+      const o2=ctx.createOscillator(),g2=ctx.createGain();
+      o2.type='triangle';o2.frequency.setValueAtTime(206,now);o2.frequency.exponentialRampToValueAtTime(126,now+dur);
+      const o3=ctx.createOscillator(),g3=ctx.createGain();
+      o3.type='sine';o3.frequency.setValueAtTime(69,now);o3.frequency.exponentialRampToValueAtTime(46,now+dur);
+
+      const lfo=ctx.createOscillator(),lfoG=ctx.createGain();
+      lfo.frequency.setValueAtTime(24,now);lfoG.gain.setValueAtTime(9,now);
+      lfo.connect(lfoG);lfoG.connect(o1.frequency);lfoG.connect(o2.frequency);
+
+      g1.gain.setValueAtTime(.001,now);g1.gain.linearRampToValueAtTime(.28,now+.05);g1.gain.exponentialRampToValueAtTime(.001,now+dur);
+      g2.gain.setValueAtTime(.001,now);g2.gain.linearRampToValueAtTime(.24,now+.06);g2.gain.exponentialRampToValueAtTime(.001,now+dur);
+      g3.gain.setValueAtTime(.001,now);g3.gain.linearRampToValueAtTime(.35,now+.04);g3.gain.exponentialRampToValueAtTime(.001,now+dur);
+
+      o1.connect(g1);o2.connect(g2);o3.connect(g3);
+      g1.connect(filter);g2.connect(filter);g3.connect(master);
+      o1.start(now);o2.start(now);o3.start(now);lfo.start(now);
+      o1.stop(now+dur+.03);o2.stop(now+dur+.03);o3.stop(now+dur+.03);lfo.stop(now+dur+.03);
+    }else{
+      // Melodischer 3-Silben Vogelton
+      const chirp=(off,dur,f1,f2,f3,v)=>{
+        const t=now+off,o=ctx.createOscillator(),g=ctx.createGain();
+        o.type='sine';
+        o.frequency.setValueAtTime(f1,t);
+        o.frequency.exponentialRampToValueAtTime(f2,t+dur*.65);
+        o.frequency.exponentialRampToValueAtTime(f3,t+dur);
+        g.gain.setValueAtTime(.001,t);
+        g.gain.linearRampToValueAtTime(v,t+.018);
+        g.gain.exponentialRampToValueAtTime(.001,t+dur);
+        o.connect(g);g.connect(master);
+        o.start(t);o.stop(t+dur+.02);
+      };
+      chirp(0,.13,1420,2120,1880,.26);
+      chirp(.15,.13,1680,2480,2150,.28);
+      chirp(.31,.21,1850,2820,2380,.25);
+    }
+  }catch(e){}
+}
+
+function buildSignals(){
+  let raw=[];
+  if(signalsPerRound===1){
+    const t=rand(['color','color','tone','pedal']);
+    raw=[{type:t,value:rand(t==='color'?COLORS:t==='tone'?TONES:PEDALS)}];
+  }else if(signalsPerRound===2){
+    const c=rand(['color-pedal','tone-color','color-color','tone-pedal']);
+    if(c==='color-pedal')raw=[{type:'color',value:rand(COLORS)},{type:'pedal',value:rand(PEDALS)}];
+    else if(c==='tone-color')raw=[{type:'tone',value:rand(TONES)},{type:'color',value:rand(COLORS)}];
+    else if(c==='color-color'){const f=rand(COLORS);raw=[{type:'color',value:f},{type:'color',value:rand(COLORS.filter(x=>x!==f))}];}
+    else raw=[{type:'tone',value:rand(TONES)},{type:'pedal',value:rand(PEDALS)}];
   }else{
-    voice(now,.15,1150,1720,'sine',.13);
-    voice(now+.18,.14,1450,2160,'sine',.13);
-    voice(now+.36,.18,1750,2400,'sine',.11);
+    raw=[{type:'color',value:rand(COLORS)},{type:'tone',value:rand(TONES)},{type:'pedal',value:rand(PEDALS)}];
   }
- }catch(e){console.warn('Sunet indisponibil',e)}
+  const used=[];
+  return raw.map(s=>{
+    if(s.type==='color'){
+      const pool=[0,1,2,3,4,5,6,7].filter(i=>!used.includes(i));
+      const slot=rand(pool);used.push(slot);
+      return {...s,lampIndex:slot};
+    }
+    return s;
+  });
 }
-function showSignals(){
- // Fiecare rundă folosește cel mult două semnale. Pedalele au
- // mereu indicatoarele dreptunghiulare 8/9; culorile folosesc NUMAI cercuri.
- for(let i=0;i<lamps.children.length;i++){
-  const el=lamps.children[i];
-  el.className=i>=8?'lamp pedal-indicator '+(i===8?'left-side':'right-side'):'lamp';
-  el.textContent='';el.setAttribute('aria-label','Indicator stins');
- }
- const signalsOfColor=currentSignals.filter(s=>s.type==='color');
- // Două culori diferite se văd pe două cercuri separate; o culoare
- // lângă pedală este întotdeauna vizibilă concomitent cu dreptunghiul.
- const circleSlots=signalsOfColor.length===2?[1,6]:[2];
- signalsOfColor.forEach((signal,i)=>{
-  const el=lamps.children[circleSlots[i]];
-  el.classList.add('is-lit','is-'+signal.value);
-  el.setAttribute('aria-label','Culoare: '+signal.value);
- });
- currentSignals.filter(s=>s.type==='pedal').forEach(signal=>{
-  const el=lamps.children[signal.value==='left'?8:9];
-  el.classList.add('is-lit','is-pedal');
-  el.textContent=signal.value==='left'?'S':'D';
-  el.setAttribute('aria-label',signal.value==='left'?'Pedală stânga':'Pedală dreapta');
- });
- const tone=currentSignals.find(s=>s.type==='tone');
- document.getElementById('notification').textContent=tone?(tone.value==='high'?'Ton Înalt · pasăre ↑':'Ton Scăzut · urs ↓'):'Două semnale luminoase';
- if(tone)speakTone(tone.value);
+
+function renderSignals(){
+  Array.from(lampsContainer.children).forEach((el,i)=>{
+    el.className='lamp';el.textContent=String(i+1);
+  });
+  document.getElementById('pedalLeft').className='pedal-indicator';
+  document.getElementById('pedalRight').className='pedal-indicator';
+
+  currentSignals.forEach(s=>{
+    if(s.type==='color'){
+      const el=lampsContainer.children[s.lampIndex];
+      el.classList.add('is-lit','is-'+s.value);
+    }else if(s.type==='pedal'){
+      document.getElementById(s.value==='left'?'pedalLeft':'pedalRight').classList.add('is-lit');
+    }
+  });
+  const tone=currentSignals.find(s=>s.type==='tone');
+  document.getElementById('notification').textContent=tone
+    ?(showToneText?(tone.value==='high'?'Hoher Ton · Vogel ↑':'Tiefer Ton · Bär ↓'):'♪ Tonsignal aktiv (Gehör)')
+    :'Optische Signale ('+signalsPerRound+')';
+  if(tone)speakTone(tone.value);
 }
-function nextRound(){if(currentRound>=totalRounds){endGame();return}currentSignals=buildSignals();currentRound++;userChoices=[];waiting=false;controls.forEach(b=>b.classList.remove('selected'));document.getElementById('roundLabel').textContent='Runda '+currentRound+' din '+totalRounds;document.getElementById('status').textContent='Test activ';document.getElementById('choiceHint').textContent='Alegeți două comenzi · 0 / 2';showSignals()}
-function begin(rounds){totalRounds=rounds;currentRound=0;correctAnswers=0;userChoices=[];finished=false;document.getElementById('setup').classList.add('hidden');document.getElementById('result').classList.add('hidden');document.getElementById('console').classList.remove('inactive');nextRound()}
-function choose(button){if(!totalRounds||finished||waiting)return;userChoices.push({type:button.dataset.type,value:button.dataset.value});button.classList.add('selected');if(button.dataset.type==='tone')speakTone(button.dataset.value);document.getElementById('choiceHint').textContent='Alegeți două comenzi · '+userChoices.length+' / 2';if(userChoices.length===2){waiting=true;const [a,b]=userChoices;const [s1,s2]=currentSignals;const equals=(x,y)=>x.type===y.type&&x.value===y.value;if((equals(a,s1)&&equals(b,s2))||(equals(a,s2)&&equals(b,s1)))correctAnswers++;nextRound()}}
-function endGame(){finished=true;document.getElementById('console').classList.add('inactive');for(let i=0;i<lamps.children.length;i++){const el=lamps.children[i];el.className=i>=8?'lamp pedal-indicator '+(i===8?'left-side':'right-side'):'lamp';el.textContent=''}const percentage=(correctAnswers/totalRounds)*100;document.getElementById('status').textContent='Finalizat';document.getElementById('roundLabel').textContent='Test încheiat';document.getElementById('notification').textContent='Rezultat: '+correctAnswers+' / '+totalRounds;const result=document.getElementById('result');result.classList.remove('hidden');result.textContent=(percentage>=60?'Felicitări! Ai promovat! 🎉':'Din păcate, nu ai promovat.')+' Răspunsuri corecte: '+correctAnswers+' din '+totalRounds+' ('+percentage.toFixed(2)+'%).';const restart=document.createElement('button');restart.className='reset';restart.textContent='Repornire';restart.addEventListener('click',reset);result.append(document.createElement('br'),restart)}
-function reset(){totalRounds=0;currentRound=0;finished=false;waiting=false;userChoices=[];currentSignals=[];controls.forEach(b=>b.classList.remove('selected'));document.getElementById('result').classList.add('hidden');document.getElementById('result').textContent='';document.getElementById('setup').classList.remove('hidden');document.getElementById('roundLabel').textContent='Alegeți numărul de runde';document.getElementById('notification').textContent='Așteptare';document.getElementById('status').textContent='Pregătit';document.getElementById('choiceHint').textContent='Apăsați cele două comenzi care corespund semnalelor.';for(let i=0;i<lamps.children.length;i++){const el=lamps.children[i];el.className=i>=8?'lamp pedal-indicator '+(i===8?'left-side':'right-side'):'lamp';el.textContent=''}}
-document.querySelectorAll('[data-rounds]').forEach(b=>b.addEventListener('click',()=>begin(Number(b.dataset.rounds))));controls.forEach(b=>b.addEventListener('click',()=>choose(b)));
-</script></body></html>
+
+function updateStatsUI(){
+  const pct=currentRound>1?Math.round((correctAnswers/(currentRound-1))*100):0;
+  document.getElementById('scoreLabel').textContent=correctAnswers+' / '+Math.max(0,currentRound-1)+(currentRound>1?' ('+pct+'%)':'');
+  document.getElementById('streakLabel').textContent=String(streak);
+  document.getElementById('avgTimeLabel').textContent=currentRound>1?Math.round(totalTimeMs/(currentRound-1))+' ms':'—';
+}
+
+function nextRound(){
+  if(timerId){clearInterval(timerId);timerId=null;}
+  if(!isEndless&&currentRound>=totalRounds){endGame();return;}
+  currentRound++;
+  currentSignals=buildSignals();
+  userChoices=[];
+  waiting=false;
+  roundStart=performance.now();
+  controls.forEach(b=>b.classList.remove('selected'));
+  document.getElementById('undoBtn').classList.add('hidden');
+  document.getElementById('roundLabel').textContent=isEndless?'Endlos · Runde '+currentRound:'Runde '+currentRound+' von '+totalRounds;
+  document.getElementById('choiceProgress').textContent='Auswahl: 0 / '+signalsPerRound;
+  updateStatsUI();
+  renderSignals();
+
+  if(timeLimitMs>0){
+    const wrap=document.getElementById('timerWrap'),bar=document.getElementById('timerBar');
+    wrap.classList.remove('hidden');
+    timerId=setInterval(()=>{
+      const left=Math.max(0,timeLimitMs-(performance.now()-roundStart));
+      bar.style.width=(left/timeLimitMs*100)+'%';
+      if(left<=0){
+        clearInterval(timerId);timerId=null;
+        waiting=true;streak=0;totalTimeMs+=timeLimitMs;
+        document.getElementById('lastFeedback').textContent='⏱ Zeit abgelaufen!';
+        setTimeout(nextRound,550);
+      }
+    },50);
+  }else{
+    document.getElementById('timerWrap').classList.add('hidden');
+  }
+}
+
+function begin(){
+  playing=true;currentRound=0;correctAnswers=0;streak=0;totalTimeMs=0;
+  document.getElementById('resultBox').classList.add('hidden');
+  document.getElementById('startBtn').textContent='↻ Neu starten';
+  nextRound();
+}
+
+function choose(btn){
+  const type=btn.dataset.type,value=btn.dataset.value;
+  if(!playing){if(type==='tone')speakTone(value);return;}
+  if(waiting)return;
+
+  const existIdx=userChoices.findIndex(c=>c.type===type&&c.value===value);
+  if(existIdx!==-1){
+    userChoices.splice(existIdx,1);
+    btn.classList.remove('selected');
+    document.getElementById('choiceProgress').textContent='Auswahl: '+userChoices.length+' / '+signalsPerRound;
+    if(!userChoices.length)document.getElementById('undoBtn').classList.add('hidden');
+    return;
+  }
+
+  userChoices.push({type,value});
+  btn.classList.add('selected');
+  if(type==='tone')speakTone(value);
+  document.getElementById('undoBtn').classList.remove('hidden');
+  document.getElementById('choiceProgress').textContent='Auswahl: '+userChoices.length+' / '+signalsPerRound;
+
+  if(userChoices.length===signalsPerRound){
+    waiting=true;
+    if(timerId){clearInterval(timerId);timerId=null;}
+    const ms=Math.max(80,Math.round(performance.now()-roundStart));
+    totalTimeMs+=ms;
+    const rem=[...currentSignals];
+    let ok=true;
+    for(const c of userChoices){
+      const idx=rem.findIndex(e=>e.type===c.type&&e.value===c.value);
+      if(idx!==-1)rem.splice(idx,1);else{ok=false;break;}
+    }
+    if(ok&&rem.length===0){
+      correctAnswers++;streak++;
+      document.getElementById('lastFeedback').textContent='✓ Richtig! ('+ms+' ms)';
+    }else{
+      streak=0;
+      document.getElementById('lastFeedback').textContent='✗ Fehler ('+ms+' ms)';
+    }
+    setTimeout(nextRound,340);
+  }
+}
+
+function endGame(){
+  playing=false;
+  const done=Math.max(1,currentRound);
+  const pct=(correctAnswers/done)*100;
+  const avg=Math.round(totalTimeMs/done);
+  updateStatsUI();
+  const box=document.getElementById('resultBox');
+  box.classList.remove('hidden');
+  box.innerHTML='<strong>'+(pct>=60?'Glückwunsch! Bestanden! 🎉':'Training fortsetzen')+'</strong><br>'+
+    'Richtige Antworten: '+correctAnswers+' von '+done+' ('+pct.toFixed(1)+'%) · Ø Zeit: '+avg+' ms';
+}
+
+controls.forEach(b=>b.addEventListener('click',()=>choose(b)));
+document.getElementById('startBtn').addEventListener('click',begin);
+document.getElementById('quickBirdBtn').addEventListener('click',()=>speakTone('high'));
+document.getElementById('quickBearBtn').addEventListener('click',()=>speakTone('low'));
+document.getElementById('testHighBtn').addEventListener('click',()=>speakTone('high'));
+document.getElementById('testLowBtn').addEventListener('click',()=>speakTone('low'));
+document.getElementById('repeatToneBtn').addEventListener('click',()=>{
+  const t=currentSignals.find(s=>s.type==='tone');
+  speakTone(t?t.value:'high');
+});
+document.getElementById('undoBtn').addEventListener('click',()=>{
+  userChoices=[];controls.forEach(b=>b.classList.remove('selected'));
+  document.getElementById('undoBtn').classList.add('hidden');
+  document.getElementById('choiceProgress').textContent='Auswahl: 0 / '+signalsPerRound;
+});
+document.getElementById('muteBtn').addEventListener('click',e=>{
+  muted=!muted;e.target.textContent=muted?'Ton: Aus':'Ton: Ein';
+});
+document.getElementById('toggleToneHintBtn').addEventListener('click',e=>{
+  showToneText=!showToneText;
+  e.target.textContent=showToneText?'Ton-Text: Sichtbar':'Nur Gehör';
+});
+document.getElementById('volSlider').addEventListener('input',e=>{
+  volume=Number(e.target.value)/100;
+  document.getElementById('volLabel').textContent=e.target.value+'%';
+});
+
+function updateSetupLabels(){
+  document.getElementById('selectedRoundsText').textContent=isEndless?'Endlos-Modus':totalRounds+' Runden';
+  document.getElementById('modeSummary').textContent=signalsPerRound+' Signale · '+(isEndless?'Endlos':totalRounds+' Runden');
+  document.getElementById('startBtn').textContent='▶ Test starten ('+(isEndless?'Endlos':totalRounds+' Runden')+')';
+}
+
+document.querySelectorAll('#roundButtons .opt-btn').forEach(b=>b.addEventListener('click',()=>{
+  isEndless=false;totalRounds=Number(b.dataset.rounds);
+  document.getElementById('roundsSlider').value=String(totalRounds);
+  document.querySelectorAll('#roundButtons .opt-btn').forEach(x=>x.classList.remove('active'));
+  document.getElementById('endlessBtn').classList.remove('active');
+  b.classList.add('active');updateSetupLabels();begin();
+}));
+document.getElementById('roundsSlider').addEventListener('input',e=>{
+  isEndless=false;totalRounds=Number(e.target.value);
+  document.querySelectorAll('#roundButtons .opt-btn').forEach(x=>x.classList.remove('active'));
+  document.getElementById('endlessBtn').classList.remove('active');
+  updateSetupLabels();
+});
+document.getElementById('endlessBtn').addEventListener('click',e=>{
+  isEndless=!isEndless;e.target.classList.toggle('active',isEndless);
+  updateSetupLabels();
+});
+document.querySelectorAll('#sigCountButtons .opt-btn').forEach(b=>b.addEventListener('click',()=>{
+  signalsPerRound=Number(b.dataset.sig);
+  document.querySelectorAll('#sigCountButtons .opt-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');updateSetupLabels();
+}));
+document.querySelectorAll('#timeButtons .opt-btn').forEach(b=>b.addEventListener('click',()=>{
+  timeLimitMs=Number(b.dataset.time);
+  document.querySelectorAll('#timeButtons .opt-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+}));
+window.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase();
+  const find=(t,v)=>controls.find(c=>c.dataset.type===t&&c.dataset.value===v);
+  if(k==='1'||k==='b')choose(find('color','blue'));
+  else if(k==='2'||k==='w')choose(find('color','white'));
+  else if(k==='3'||k==='g')choose(find('color','yellow'));
+  else if(k==='4'||k==='r')choose(find('color','red'));
+  else if(k==='5'||k==='v')choose(find('color','green'));
+  else if(k==='a'||e.key==='ArrowLeft')choose(find('pedal','left'));
+  else if(k==='d'||e.key==='ArrowRight')choose(find('pedal','right'));
+  else if(k==='h'||e.key==='ArrowUp')choose(find('tone','high'));
+  else if(k==='t'||e.key==='ArrowDown')choose(find('tone','low'));
+});
+</script>
+</body>
+</html>
